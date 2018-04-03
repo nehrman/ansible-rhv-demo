@@ -16,7 +16,7 @@
 
     - name: Ensure VM is present and running
       ovirt_vms:
-        auth: "{{ ovirt_auth }}"
+#        auth: "{{ ovirt_auth }}"
         name: "{{ var_rhv_vmname }}"
         state: running
         template: "{{ var_rhv_template }}"

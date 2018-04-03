@@ -6,13 +6,12 @@
 
   tasks:
 
-#    - name: Authentification to RHV-M
-#      ovirt_auth:
-#        url: "https://{{ var_rhv_host }}/ovirt-engine/api"
-#        username: "{{ var_rhv_usr }}"
-#        password: "{{ var_rhv_pwd }}"
-#        ca_file: rhvmohc.cer
-#      tags: authentication
+    - name: Authentification to RHV-M
+      ovirt_auth:
+        url: "{{ OVIRT_URL }}"
+        username: "{{ OVIRT_USERNAME }}"
+        password: "{{ OVIRT_PASSWORD }}"
+        ca_file: "{{ OVIRT_CAFILE }}"
 
     - name: Ensure VM is present and running
       ovirt_vms:

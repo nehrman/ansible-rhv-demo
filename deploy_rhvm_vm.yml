@@ -45,9 +45,10 @@
           dns_search: "{{ var_rhv_vm_dns_search }}"
       register: r_deploy_rhv
 
-    - debug:
-        var: r_deploy_rhv.vm.name
-        verbosity: 4
+    - name: "Wait Until {{ var_rhv_vmname }} is UP and Running"
+        wait_for_connection:
+          delay: 60
+        delegate_to: localhost
 
     - name: "Add {{ var_rhv_vmname }} to In-Memory Inventory"
       add_host:

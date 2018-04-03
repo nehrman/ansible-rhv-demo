@@ -43,14 +43,14 @@
           nic_on_boot: "{{ var_rhv_vm_nic_onboot | default(true) }}"
           dns_servers: "{{ var_rhv_vm_dns_ip }}"
           dns_search: "{{ var_rhv_vm_dns_search }}"
-      register: r_rhv_result
+      register: r_deploy_rhv
 
     - debug:
         var: r_rhv_result
         verbosity: 4
 
-    - name: Add "{{ var_rhv_vmname }}" to In-Memory Inventory
+    - name: "Add {{ var_rhv_vmname }} to In-Memory Inventory"
       add_host:
-        name: "{{ item.vm.name }}"
-        groups: "{{ item.vm.comment }}"
-      with_items: "{{ r_rhv_result.results }}"
+        name: "{{ item.name }}"
+        groups: "{{ item.comment }}"
+      with_items: "{{ r_deploy_rhv.vm }}"

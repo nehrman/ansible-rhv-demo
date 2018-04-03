@@ -53,6 +53,5 @@
       add_host:
         name: "{{ var_rhv_vmname }}"
         groups:
-          - "{{ item.comment }}"
+          - "{{ r_deploy_rhv.vm.comment }}"
           - just_created
-      with_items: "{{ r_deploy_rhv.vm }}"

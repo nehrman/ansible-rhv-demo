@@ -8,33 +8,33 @@
 
     - name: Authentification to RHV-M
       ovirt_auth:
-        url: 'https://{{ var_rhv_host }}/ovirt-engine/api'
-        username: '{{ var_rhv_usr }}'
-        password: '{{ var_rhv_pwd }}'
+        url: "https://{{ var_rhv_host }}/ovirt-engine/api"
+        username: "{{ var_rhv_usr }}"
+        password: "{{ var_rhv_pwd }}"
         ca_file: rhvmohc.cer
       tag: authentication
 
     - name: Ensure VM is present and running
       ovirt_vms:
-        auth: '{{ ovirt_auth }}'
-        name: '{{ var_rhv_vmname }}'
+        auth: "{{ ovirt_auth }}"
+        name: "{{ var_rhv_vmname }}"
         state: running
-        template: '{{ var_rhv_template }}'
-        cluster: '{{ var_rhv_cluster }}'
-        storage_domain: '{{ var_rhv_stodom }}'
-        memory: '{{ var_rhv_vm_memory }}'
-        cpu_cores: '{{ var_rhv_vm_cpucores }}'
-        cpu_sockets: '{{ var_rhv_vm_cpusockets }}'
+        template: "{{ var_rhv_template }}"
+        cluster: "{{ var_rhv_cluster }}"
+        storage_domain: "{{ var_rhv_stodom }}"
+        memory: "{{ var_rhv_vm_memory }}"
+        cpu_cores: "{{ var_rhv_vm_cpucores }}"
+        cpu_sockets: "{{ var_rhv_vm_cpusockets }}"
         nics:
-          - name: '{{ var_rhv_vm_nic }}'
-            profile_name: '{{ var_rhv_vm_nic_prof }}'
+          - name: "{{ var_rhv_vm_nic }}"
+            profile_name: "{{ var_rhv_vm_nic_prof }}"
         cloud_init:
-          host_name: '{{ var_rhv_vmname }}'
-          user_name: '{{ var_rhv_vm_username }}'
-          root_password: '{{ var_rhv_vm_pwd }}'
-          nic_name: '{{ var_rhv_vm_nic }}'
+          host_name: "{{ var_rhv_vmname }}"
+          user_name: "{{ var_rhv_vm_username }}"
+          root_password: "{{ var_rhv_vm_pwd }}"
+          nic_name: "{{ var_rhv_vm_nic }}"
           nic_boot_protocol: static
-          nic_ip_address: '{{ var_rhv_vm_ip }}'
-          nic_gateway: '{{ var_rhv_vm_gw }}'
-          nic_netmask: '{{ var_rhv_vm_subnet }}'
-          nic_on_boot: '{{ var_rhv_vm_subnet | default('true') }}'
+          nic_ip_address: "{{ var_rhv_vm_ip }}"
+          nic_gateway: "{{ var_rhv_vm_gw }}"
+          nic_netmask: "{{ var_rhv_vm_subnet }}"
+          nic_on_boot: "{{ var_rhv_vm_subnet | default('true') }}"

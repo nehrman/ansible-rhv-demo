@@ -8,7 +8,7 @@
 
     - name: Authentification to RHV-M
       ovirt_auth:
-        url: "{{ OVIRT_URL }}"
+        url: "{{ ovirt_url }}"
         username: "{{ OVIRT_USERNAME }}"
         password: "{{ OVIRT_PASSWORD }}"
         ca_file: "{{ OVIRT_CAFILE }}"

@@ -8,6 +8,10 @@
 
     - name: Obtain SSO Token
       ovirt_auth:
+        username: "{{ OVIRT_USERNAME }}"
+        password: "{{ OVIRT_PASSWORD }}"
+        url: "{{ OVIRT_URL }}"
+        ca_file: "{{ OVRIT_CAFILE }}"
         state: present
 
     - name: Ensure VM is present and running

@@ -12,6 +12,7 @@
         username: '{{ var_rhv_usr }}'
         password: '{{ var_rhv_pwd }}'
         ca_file: rhvmohc.cer
+      tag: authentication
 
     - name: Ensure VM is present and running
       ovirt_vms:
@@ -22,6 +23,8 @@
         cluster: '{{ var_rhv_cluster }}'
         storage_domain: '{{ var_rhv_stodom }}'
         memory: '{{ var_rhv_vm_memory }}'
+        cpu_cores: '{{ var_rhv_vm_cpucores }}'
+        cpu_sockets: '{{ var_rhv_vm_cpusockets }}'
         nics:
           - name: '{{ var_rhv_vm_nic }}'
             profile_name: '{{ var_rhv_vm_nic_prof }}'
@@ -34,4 +37,4 @@
           nic_ip_address: '{{ var_rhv_vm_ip }}'
           nic_gateway: '{{ var_rhv_vm_gw }}'
           nic_netmask: '{{ var_rhv_vm_subnet }}'
-          nic_on_boot: true
+          nic_on_boot: {{ var_rhv_vm_subnet | default('true') }}'

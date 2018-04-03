@@ -45,7 +45,11 @@
           dns_search: "{{ var_rhv_vm_dns_search }}"
       register: r_rhv_result
 
-    - name: "Add {{ var_rhv_vmname }} to In-Memory Inventory"
+    - debug:
+        var: r_rhv_result
+        verbosity: 4
+
+    - name: Add "{{ var_rhv_vmname }}" to In-Memory Inventory
       add_host:
         name: "{{ item.vm.name }}"
         groups: "{{ item.vm.comment }}"

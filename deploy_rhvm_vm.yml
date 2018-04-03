@@ -37,4 +37,4 @@
           nic_ip_address: '{{ var_rhv_vm_ip }}'
           nic_gateway: '{{ var_rhv_vm_gw }}'
           nic_netmask: '{{ var_rhv_vm_subnet }}'
-          nic_on_boot: {{ var_rhv_vm_subnet | default('true') }}'
+          nic_on_boot: '{{ var_rhv_vm_subnet | default('true') }}'

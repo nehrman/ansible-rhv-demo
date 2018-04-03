@@ -46,7 +46,7 @@
       register: r_deploy_rhv
 
     - debug:
-        var: r_deploy_rhv.vm
+        var: r_deploy_rhv.vm.name
         verbosity: 4
 
     - name: "Add {{ var_rhv_vmname }} to In-Memory Inventory"

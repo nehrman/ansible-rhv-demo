@@ -2,7 +2,7 @@
 - name: Deploy RHV VM
   hosts: localhost
   gather_facts: false
-#  connection: local
+  connection: local
 
   tasks:
 

@@ -11,7 +11,7 @@
         username: "{{ lookup('env','OVIRT_USERNAME') }}"
         password: "{{ lookup('env','OVIRT_PASSWORD') }}"
         url: "{{ lookup('env','OVIRT_URL') }}"
-        ca_file: "{{ lookup('env','OVIRT_CAFILE') }}"
+#        ca_file: "{{ lookup('env','OVIRT_CAFILE') }}"
         state: present
 
     - name: Ensure VM is present and running

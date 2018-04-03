@@ -12,7 +12,7 @@
         username: "{{ var_rhv_usr }}"
         password: "{{ var_rhv_pwd }}"
         ca_file: rhvmohc.cer
-      tag: authentication
+      tags: authentication
 
     - name: Ensure VM is present and running
       ovirt_vms:

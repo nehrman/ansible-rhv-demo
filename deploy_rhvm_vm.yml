@@ -6,12 +6,9 @@
 
   tasks:
 
-    - name: Authentification to RHV-M
+    - name: Obtain SSO Token
       ovirt_auth:
-        url: "{{ ovirt_url }}"
-        username: "{{ OVIRT_USERNAME }}"
-        password: "{{ OVIRT_PASSWORD }}"
-        ca_file: "{{ OVIRT_CAFILE }}"
+        state: present
 
     - name: Ensure VM is present and running
       ovirt_vms:

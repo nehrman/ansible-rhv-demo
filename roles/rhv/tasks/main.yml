@@ -9,12 +9,12 @@
     state: present
 
 - name: Deploy VM on RHV
-  include: deploy_rhv_vm.yml
-  when: var_rhv_action == "deploy"
+  import_playbook: deploy_rhv_vm.yml
+  when: rhv_action == "deploy"
 
 - name: Destroy VM on RHV
-  include: destroy_rhv_vm.yml
-  when: var_rhv_action == "destroy"
+  import_playbook: destroy_rhv_vm.yml
+  when: rhv_action == "destroy"
 
 - name: Revoke SSO Token
   ovirt_auth:
